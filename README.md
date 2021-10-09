@@ -1,4 +1,4 @@
-![Front page teaser](images/teaser_grid)
+![Front page teaser](images/teaser_grid.jpg)
 
 # Mixed Style Face Transformation with StyleGAN2 and pixel2style2pixel (pSp)
 
@@ -13,9 +13,11 @@
 - Train a new StyleGAN2 model on the pretrained StyleGAN2 model with your dataset
 - Use style blending to mix features from the FFHQ model and your new model, we will call this the **blended model**
 - Change the alpha parameter until the blended model produce desired results
+
 **Create data pairs for training pSp**
 - Generate images with the FFHQ model and the blended model with the same random seed, pair them up. The image from FFHQ model will represent the original image, and the image from blended model will represent the desired result after processing the original image through the network.
 - Pick good results from the generated data
+
 **Train pSp**
 - Use the data pairs from last step to train a pSp model, use FFHQ StyleGAN2 model as the original encoder and the blended model as the decoder
 
@@ -41,7 +43,7 @@ Trained on online pictures of Halloween masks and special makeups
 ![Minecraft_Style](images/MC_grid.jpg)
 
 
-## Insighs
+## Insights
 **Data has substantial effect on the training results! Make sure:**
 - Your training data is aligned based on feature points (I used feature points for eyes, nose, and chin) 
 - Clean your dataset. Avoid blurry pictures, shadows, side-faces, closed eyes, exaggerated facial expressions. If your dataset contains too many irregular images, some undisired features might be learned by the model. 
@@ -56,4 +58,5 @@ Trained on online pictures of Halloween masks and special makeups
 
 ## References
 [StyleGAN2_pytorch](https://github.com/rosinality/stylegan2-pytorch)
+
 [pixel2style2pixel(pSp)](https://github.com/eladrich/pixel2style2pixel)
